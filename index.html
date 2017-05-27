@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" href="assets/img/favicon.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Visão Computacional - Document Scanner</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+	<!--     Fonts and icons     -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+	<!-- CSS Files -->
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/css/material-kit.css" rel="stylesheet" />
+
+	<!-- CSS Just for demo purpose, don't include it in your project -->
+	<link href="assets/css/demo.css" rel="stylesheet" />
+
+</head>
+
+<body class="tutorial-page">
+
+	<div class="wrapper">
+		<div class="header header-filter" style="background-image: url('https://images.unsplash.com/photo-1423655156442-ccc11daa4e99?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450');">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
+						<h1 class="title text-center">Document Scanner</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="main main-raised">
+			<div class="section">
+				<div class="container">
+					<div class="row tim-row">
+						<h2 class="text-center">Como usar</h2>
+						<legend></legend>
+						<div class="col-md-8 col-md-offset-2">
+							<p> 1º Passo:
+								Selecione uma imagem de cupom fiscal e pressione Iniciar
+							</p>
+							<p> 2º Passo:
+								Corra pro abraço
+							</p>
+						  <input type="text" id="fileToSend" style="width:50em;" />
+							<img src="assets/img/load.svg" alt="" id="loading" style="display:none;">
+							<button class="btn btn-primary start">Gerar OCR</button>	<!-- Button trigger modal -->
+							<button class="btn btn-info" data-toggle="modal" data-target="#myModal">
+							 Mais Dicas
+							</button>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+
+<!-- Modal Core -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-info btn-simple">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Core -->
+<div class="modal fade" id="error" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<div class="alert alert-danger">
+						<div class="container-fluid">
+						<div class="alert-icon">
+							<i class="material-icons">error_outline</i>
+						</div>
+							<b>Erro ao Processar a Imagem</b><br>
+							Um erro ocorreu ao tentar gerar o texto para a imagem carregada
+						</div>
+				</div>
+			</div>
+      <div class="modal-body">
+
+				A imagem selecionada não pode ser processada. Escolha imagens que contenham notas fiscais que não estejam danificadas,
+				amassadas, dobradas, etc. Selecione imagens com o fundo uniforme onde haja contraste com a nota.
+				Ex: Fundo uniforme preto
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-info btn-simple">Save</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+	<footer class="footer footer-transparent">
+		<div class="container">
+			<nav class="text-center">
+				<ul>
+					<li>
+						<a href="http://presentation.creative-tim.com">
+							Universidade Federal de Alagoas
+						</a>
+					</li>
+					<li>
+						<a href="http://presentation.creative-tim.com">
+							Engenharia de Computação
+						</a>
+					</li>
+					<li>
+						<a href="http://www.creative-tim.com">
+						Visão Computacional 2017
+					</a>
+					</li>
+				</ul>
+			</nav>
+			<!-- <div class="social-area pull-right">
+				<a class="btn btn-social btn-twitter btn-just-icon" href="https://twitter.com/CreativeTim">
+					<i class="fa fa-twitter"></i>
+				</a>
+				<a class="btn btn-social btn-facebook btn-just-icon" href="https://www.facebook.com/CreativeTim">
+					<i class="fa fa-facebook-square"></i>
+				</a>
+				<a class="btn btn-social btn-google btn-just-icon" href="https://plus.google.com/+CreativetimPage">
+					<i class="fa fa-google-plus"></i>
+				</a>
+			</div> -->
+			<!-- <div class="copyright">
+				&copy; 2016 Creative Tim, made with love
+			</div> -->
+		</div>
+	</footer>
+
+</body>
+<!--   Core JS Files   -->
+<script>
+	window.$ = window.jQuery = require('./assets/js/jquery.min.js');
+</script>
+<script>
+	require('./assets/js/bootstrap.min.js')
+	require('./assets/js/material.min.js')
+	require('./assets/js/bootstrap-datepicker.js')
+	require('./assets/js/material-kit.js')
+	require('./node.js')
+</script>
+<script type="text/javascript">
+	$().ready(function() {
+		// the body of this function is in assets/material-kit.js
+		window_width = $(window).width();
+
+		if (window_width >= 992) {
+			big_image = $('.wrapper > .header');
+
+			$(window).on('scroll', materialKitDemo.checkScrollForParallax);
+		}
+
+	});
+</script>
+
+</html>
