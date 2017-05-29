@@ -1,8 +1,10 @@
 const {dialog} = require('electron').remote
+var fs = require('fs');
 
 $(function(){
   $(document).ready(function(){
   var path = '';
+  var errorFlag = false;
   $('#fileToSend').on('click',function(){
     path = dialog.showOpenDialog({title:"Selecione a imagem",properties: ['openFile'],filters:[{name: 'Images', extensions: ['jpg', 'png', 'gif']}]});
     $(this).val(path);
@@ -10,6 +12,7 @@ $(function(){
   $('.start').on('click',function() {
   console.log(path);
   $("#loading").css("display","block");
+  $(".form").css("display","none");
 	var ps = require('child_process').spawn('./documentScanner',
      // second argument is array of parameters, e.g.:
      [path]);
@@ -21,7 +24,8 @@ $(function(){
 	ps.stderr.on('data', (data) => {
 	  console.log(`ps stderr: ${data}`);
     if(data == 'error'){
-      console.log("Erro ao carreegar a imagem");
+      errorFlag = true;
+      console.log("Erro ao carregar a imagem");
       $('#error').modal();
     }
 	});
@@ -31,9 +35,18 @@ $(function(){
 		console.log(`ps process exited with code ${code}`);
     $('#error').modal();
     }else{
-      $("#loading").css("display","none");
-      $('#myModal').modal();
+      if(errorFlag == false){
+        cam = dialog.showSaveDialog();
+        fs.rename("./out.txt", cam.replace(".txt","").concat(".txt"), function (err) {
+          if (err) throw err
+          console.log('Successfully renamed - AKA moved!')
+        });
+        $('#success').modal();
+      }
     }
+    $("#loading").css("display","none");
+    $(".form").css("display","block");
+    errorFlag = false;
 	});
 
   });
