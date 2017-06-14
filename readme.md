@@ -1,6 +1,8 @@
 # DocumentScanner
 ### Visão Computacional - UFAL 2016.2
 ***
+## Versão com interface gráfica via electron
+### Versão Linha de comando - Terminal [Neste link](https://github.com/tutzalz/DocumentScanner/tree/progress-week-2)
 
 ##### Dependências do projeto
 
