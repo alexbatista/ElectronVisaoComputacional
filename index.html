@@ -28,11 +28,12 @@
 <body class="tutorial-page">
 
 	<div class="wrapper">
-		<div class="header header-filter" style="background-image: url('https://images.unsplash.com/photo-1423655156442-ccc11daa4e99?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450');">
+		<div class="header header-filter" style="background-image: url('assets/img/back.jpg');">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3">
-						<h1 class="title text-center">Document Scanner</h1>
+						<h1 class="title text-center" style="margin-bottom: 0;">Document Scanner</h1>
+						<h4 class="title text-center" style="margin: 0;">Visão Computacional</h4>
 					</div>
 				</div>
 			</div>
@@ -46,7 +47,7 @@
 						<legend></legend>
 						<div class="col-md-8 col-md-offset-2">
 							<p> 1º Passo:
-								Selecione uma imagem de cupom fiscal e pressione Iniciar
+								Selecione uma imagem de cupom fiscal e pressione "Gerar Texto"
 							</p>
 							<p> 2º Passo:
 								Corra pro abraço
@@ -57,7 +58,7 @@
 							</div>
 							<div class="form">
 								<input type="text" id="fileToSend" style="width:50em;" />
-								<button class="btn btn-primary start">Gerar OCR</button>	<!-- Button trigger modal -->
+								<button class="btn btn-primary start">Gerar Texto</button>	<!-- Button trigger modal -->
 								<button class="btn btn-info" data-toggle="modal" data-target="#myModal">
 							 Mais Dicas
 							</button>
@@ -79,14 +80,17 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">Dicas de Uso</h4>
       </div>
       <div class="modal-body">
-        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
+				<ul>
+					<li>Apenas imagens com documentos fiscais são processadas.</li>
+					<li>Selecione imagens que não contenham rasuras, dobras, amassos e outros danos semelhantes</li>
+					<li>Dê preferência à imagens que contenham fundos uniformes e que contrastem com o documento.</li>
+				</ul>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-info btn-simple">Save</button>
+        <button type="button" class="btn btn-info btn-simple" data-dismiss="modal">Entendi</button>
       </div>
     </div>
   </div>
@@ -97,7 +101,6 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				<div class="alert alert-danger">
 						<div class="container-fluid">
 						<div class="alert-icon">
@@ -108,16 +111,14 @@
 						</div>
 				</div>
 			</div>
-      <div class="modal-body">
-
-				A imagem selecionada não pode ser processada. Escolha imagens que contenham notas fiscais que não estejam danificadas,
-				amassadas, dobradas, etc. Selecione imagens com o fundo uniforme onde haja contraste com a nota.
-				Ex: Fundo uniforme preto
-      </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-info btn-simple">Save</button>
-      </div> -->
+			<div class="modal-body">
+				<h4>Dicas:</h4>
+				<ul>
+					<li>Apenas imagens com documentos fiscais são processadas.</li>
+					<li>Selecione imagens que não contenham rasuras, dobras, amassos e outros danos semelhantes</li>
+					<li>Dê preferência à imagens que contenham fundos uniformes e que contrastem com o documento.</li>
+				</ul>
+			</div>
     </div>
   </div>
 </div>
@@ -135,13 +136,23 @@
 				    </div>
 				</div>
 			</div>
-      <div class="modal-body">
-
-      </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-info btn-simple">Save</button>
-      </div> -->
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="selectFileModal" tabindex="-1" role="dialog" aria-labelledby="selectFileModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+				<div class="alert alert-info">
+				    <div class="container-fluid">
+					  <div class="alert-icon">
+						<i class="material-icons">info_outline</i>
+					  </div>
+					  <b>Informação:</b> Você precisa selecionar uma imagem válida para gerar o texto.
+						Consulte as dicas para mais informações.
+				    </div>
+				</div>
+			</div>
     </div>
   </div>
 </div>
